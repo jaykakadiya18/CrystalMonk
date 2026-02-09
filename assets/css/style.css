@@ -821,6 +821,9 @@ a.likeproduct img.like{
 .ayur-about-img{
   position: relative;
 }
+.ayur-about-img img{
+  border-radius: 20px;
+}
 .ayur-about-exp {
   position: absolute;
   bottom: 26px;
