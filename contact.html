@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Pure Astrology</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/select2.min.css">
+    <link rel="stylesheet" href="assets/css/flatpickr.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <style>
+        /* Contact Page Styles */
+        .ayur-contact-hero {
+            background: linear-gradient(135deg, #F6F1ED 0%, #E8DDD6 100%);
+            padding: 80px 0;
+            margin-bottom: 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ayur-contact-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(65, 58, 164, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .ayur-contact-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(65, 58, 164, 0.08);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .ayur-contact-hero .container {
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ayur-contact-hero h1 {
+            font-size: 52px;
+            color: #222;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .ayur-contact-hero p {
+            font-size: 16px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .ayur-contact-wrapper {
+            padding: 80px 0;
+        }
+
+        .ayur-contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .ayur-contact-info {
+            animation: slideInLeft 0.8s ease;
+        }
+
+        .ayur-contact-form-wrapper {
+            animation: slideInRight 0.8s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .ayur-contact-heading {
+            margin-bottom: 40px;
+        }
+
+        .ayur-contact-heading h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .ayur-contact-heading p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Contact Info Items */
+        .ayur-contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            margin-top: 45px;
+        }
+
+        .ayur-contact-item {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            background: #F6F1ED;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border-left: 4px solid rgb(65, 58, 164);
+        }
+
+        .ayur-contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 24px rgba(65, 58, 164, 0.15);
+            background: linear-gradient(135deg, #F6F1ED 0%, #E8DDD6 100%);
+        }
+
+        .ayur-contact-item-icon {
+            width: 60px;
+            height: 60px;
+            background: rgb(65, 58, 164);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 24px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(65, 58, 164, 0.3);
+        }
+
+        .ayur-contact-item-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .ayur-contact-item-content p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .ayur-contact-item-content a {
+            color: rgb(65, 58, 164);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .ayur-contact-item-content a:hover {
+            color: #222;
+            text-decoration: underline;
+        }
+
+        /* Contact Form */
+        .ayur-contact-form {
+            background: #fff;
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid #F0F0F0;
+        }
+
+        .ayur-contact-form h3 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .ayur-form-group {
+            margin-bottom: 22px;
+        }
+
+        .ayur-form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        .ayur-contact-form input,
+        .ayur-contact-form textarea,
+        .ayur-contact-form select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #E8DDD6;
+            border-radius: 12px;
+            font-size: 14px;
+            font-family: 'Archivo', sans-serif;
+            color: #222;
+            background: #F6F1ED;
+            transition: all 0.3s ease;
+        }
+
+        .ayur-contact-form input::placeholder,
+        .ayur-contact-form textarea::placeholder {
+            color: #999;
+        }
+
+        .ayur-contact-form input:focus,
+        .ayur-contact-form textarea:focus,
+        .ayur-contact-form select:focus {
+            background: #fff;
+            border-color: rgb(65, 58, 164);
+            box-shadow: 0 0 0 3px rgba(65, 58, 164, 0.1);
+            outline: none;
+        }
+
+        .ayur-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .ayur-contact-form textarea {
+            resize: vertical;
+            min-height: 130px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .ayur-form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .ayur-form-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: rgb(65, 58, 164);
+        }
+
+        .ayur-form-checkbox label {
+            margin: 0;
+            font-size: 13px;
+            color: #666;
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        /* Submit Button */
+        .ayur-submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: rgb(65, 58, 164);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(65, 58, 164, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ayur-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(65, 58, 164, 0.4);
+        }
+
+        .ayur-submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .ayur-submit-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .ayur-submit-btn:active::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Social Links */
+        .ayur-social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #E8DDD6;
+        }
+
+
+        .ayur-social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgb(65, 58, 164);
+            color: rgb(65, 58, 164);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid #E8DDD6;
+        }
+
+        .ayur-social-link:hover {
+            background: rgb(65, 58, 164);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(65, 58, 164, 0.3);
+        }
+
+        /* Map Section */
+        .ayur-map-section {
+            margin-top: 100px;
+            padding-top: 80px;
+            border-top: 2px solid #E8DDD6;
+        }
+
+        .ayur-map-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .ayur-map-heading h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .ayur-map-heading p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .ayur-map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            animation: scaleIn 0.8s ease;
+        }
+
+        .ayur-map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Success Message */
+        .ayur-form-message {
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: none;
+            animation: slideDown 0.4s ease;
+        }
+
+        .ayur-form-message.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            display: block;
+        }
+
+        .ayur-form-message.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .ayur-contact-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .ayur-contact-form {
+                padding: 35px;
+            }
+
+            .ayur-contact-hero h1 {
+                font-size: 40px;
+            }
+
+            .ayur-contact-heading h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ayur-contact-hero {
+                padding: 60px 0;
+                margin-bottom: 60px;
+            }
+
+            .ayur-contact-hero h1 {
+                font-size: 32px;
+            }
+
+            .ayur-contact-wrapper {
+                padding: 60px 0;
+            }
+
+            .ayur-contact-form {
+                padding: 25px;
+            }
+
+            .ayur-form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .ayur-contact-item {
+                padding: 20px;
+            }
+
+            .ayur-map-container {
+                height: 350px;
+            }
+
+            .ayur-contact-heading h2 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ayur-contact-hero {
+                padding: 40px 0;
+                margin-bottom: 40px;
+            }
+
+            .ayur-contact-hero h1 {
+                font-size: 26px;
+                margin-bottom: 15px;
+            }
+
+            .ayur-contact-hero p {
+                font-size: 14px;
+            }
+
+            .ayur-contact-wrapper {
+                padding: 40px 0;
+            }
+
+            .ayur-contact-items {
+                gap: 20px;
+                margin-top: 30px;
+            }
+
+            .ayur-contact-item {
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .ayur-contact-item-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .ayur-map-container {
+                height: 280px;
+            }
+
+            .ayur-contact-form {
+                padding: 20px;
+            }
+
+            .ayur-submit-btn {
+                padding: 14px;
+                font-size: 14px;
+            }
+
+            .ayur-social-links {
+                gap: 10px;
+            }
+
+            .ayur-social-link {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!------------- Loader start ----------->
+    <div class="ayur-loader">
+        <div class="ayur-spin">
+            <img src="assets/images/loader.gif" alt="loader">
+        </div>
+    </div>
+    <!------------- Loader End ----------->
+
+    <!------------- Header Section start ----------->
+    <div class="ayur-menu-wrapper">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-md-4 col-sm-5 col-6">
+                    <div class="ayur-menu-logo">
+                        <a href="index.html"><img src="assets/images/Logo.png"></a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-8 col-sm-7 col-6">
+                    <div class="ayur-navmenu-wrapper">
+                        <div class="ayur-nav-menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="index.html#about">About</a></li>
+                                <li><a href="shop.html">Shop</a></li>
+                                <li class="active"><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="ayur-toggle-btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------- Header Section End ----------->
+
+    <!------------- Contact Hero Section start ----------->
+    <div class="ayur-contact-hero">
+        <div class="container">
+            <h1>Get In Touch With Us</h1>
+            <p>We're here to help and answer any question you might have. Reach out to us and we'll respond as soon as possible.</p>
+        </div>
+    </div>
+    <!------------- Contact Hero Section end ----------->
+
+    <!------------- Contact Section start ----------->
+    <div class="ayur-contact-wrapper">
+        <div class="container">
+            <div class="ayur-contact-content">
+                <!-- Contact Information -->
+                <div class="ayur-contact-info">
+                    <div class="ayur-contact-heading">
+                        <h2>Contact Information</h2>
+                        <p>Reach us through any of the channels below. Our team is always ready to assist you with your queries about our services and products.</p>
+                    </div>
+
+                    <div class="ayur-contact-items">
+                        <!-- Address -->
+                        <div class="ayur-contact-item">
+                            <div class="ayur-contact-item-icon">
+                                <img src="assets/images/location.png" alt="icon" />
+                            </div>
+                            <div class="ayur-contact-item-content">
+                                <h3>Address</h3>
+                                <p>123 Astro Street<br>New Delhi, India 110001</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="ayur-contact-item">
+                            <div class="ayur-contact-item-icon">
+                                <img src="assets/images/mobile.png" alt="icon" />
+                            </div>
+                            <div class="ayur-contact-item-content">
+                                <h3>Phone</h3>
+                                <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                                <p><small>Available 9 AM - 6 PM (IST)</small></p>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="ayur-contact-item">
+                            <div class="ayur-contact-item-icon">
+                                <img src="assets/images/email.png" alt="icon" />
+                            </div>
+                            <div class="ayur-contact-item-content">
+                                <h3>Email</h3>
+                                <p><a href="mailto:info@crystalmonk.com">info@crystalmonk.com</a></p>
+                                <p><a href="mailto:support@crystalmonk.com">support@crystalmonk.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="ayur-social-links">
+                        <a href="https://www.facebook.com" class="ayur-social-link" target="_blank" title="Facebook">
+                            <svg width="11" height="20" viewBox="0 0 11 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.74157 20V10.8777H9.80231L10.2615 7.32156H6.74157V5.05147C6.74157 4.0222 7.02622 3.32076 8.50386 3.32076L10.3854 3.31999V0.13923C10.06 0.0969453 8.94308 0 7.64308 0C4.92848 0 3.07002 1.65697 3.07002 4.69927V7.32156H0V10.8777H3.07002V20H6.74157Z"
+                                    fill="#E4D4CF" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com" class="ayur-social-link" target="_blank" title="LinkedIn">
+                            <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.4996 0H5.49988C2.75019 0 0.5 2.25019 0.5 4.99988V15.0001C0.5 17.7491 2.75019 20 5.49988 20H15.4996C18.2493 20 20.4995 17.7491 20.4995 15.0001V4.99988C20.4995 2.25019 18.2493 0 15.4996 0ZM18.8328 15.0001C18.8328 16.8376 17.3381 18.3333 15.4996 18.3333H5.49988C3.66218 18.3333 2.16671 16.8376 2.16671 15.0001V4.99988C2.16671 3.16193 3.66218 1.66671 5.49988 1.66671H15.4996C17.3381 1.66671 18.8328 3.16193 18.8328 4.99988V15.0001Z"
+                                    fill="#E4D4CF" />
+                                <path
+                                    d="M15.9172 5.83295C16.6075 5.83295 17.1672 5.27332 17.1672 4.58298C17.1672 3.89264 16.6075 3.33301 15.9172 3.33301C15.2269 3.33301 14.6672 3.89264 14.6672 4.58298C14.6672 5.27332 15.2269 5.83295 15.9172 5.83295Z"
+                                    fill="#E4D4CF" />
+                                <path
+                                    d="M10.4999 5C7.73793 5 5.5 7.23818 5.5 9.99988C5.5 12.7606 7.73793 15.0002 10.4999 15.0002C13.261 15.0002 15.4998 12.7606 15.4998 9.99988C15.4998 7.23818 13.261 5 10.4999 5ZM10.4999 13.3335C8.65915 13.3335 7.16671 11.8411 7.16671 9.99988C7.16671 8.15866 8.65915 6.66671 10.4999 6.66671C12.3406 6.66671 13.833 8.15866 13.833 9.99988C13.833 11.8411 12.3406 13.3335 10.4999 13.3335Z"
+                                    fill="#E4D4CF" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="ayur-contact-form-wrapper">
+                    <form class="ayur-contact-form" id="contactForm" method="POST">
+                        <h3>Send us a Message</h3>
+                        
+                        <div class="ayur-form-message" id="formMessage"></div>
+
+                        <div class="ayur-form-row">
+                            <div class="ayur-form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" placeholder="Your Full Name" required>
+                            </div>
+                            <div class="ayur-form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="ayur-form-row">
+                            <div class="ayur-form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                            </div>
+                            <div class="ayur-form-group">
+                                <label for="subject">Subject *</label>
+                                <input type="text" id="subject" name="subject" placeholder="How can we help?" required>
+                            </div>
+                        </div>
+
+                        <div class="ayur-form-group">
+                            <label for="category">Category</label>
+                            <select id="category" name="category">
+                                <option value="">Select a category</option>
+                                <option value="product">Product Inquiry</option>
+                                <option value="service">Service Inquiry</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="ayur-form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Please tell us more about your inquiry..." required></textarea>
+                        </div>
+
+                        <div class="ayur-form-checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the privacy policy and terms of service</label>
+                        </div>
+
+                        <button type="submit" class="ayur-submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="ayur-map-section">
+                <div class="ayur-map-heading">
+                    <h2>Find Our Location</h2>
+                    <p>Visit us at our office or connect with us online</p>
+                </div>
+                <div class="ayur-map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5349254658016!2d77.20359672346899!3d28.612907675726346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2cc8f8b8b8b%3A0x8f8b8b8b8f8b8b8b!2sNew%20Delhi%2C%20India!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------- Contact Section end ----------->
+
+    <!------------- Footer Section start ----------->
+    <footer class="ayur-footer-sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="ayur-footer-content">
+                        <h4>About Us</h4>
+                        <p>Crystal Monk is committed to providing authentic products and services for your wellness.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="ayur-footer-content">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="ayur-footer-content">
+                        <h4>Contact Info</h4>
+                        <p>Email: <a href="mailto:info@pureastrology.com">info@pureastrology.com</a></p>
+                        <p>Phone: <a href="tel:+919876543210">+91 XXXXX XXXXX</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="ayur-footer-content">
+                        <h4>Follow Us</h4>
+                        <div  style="display: flex; gap: 10px;">
+                            <a href="https://www.facebook.com" class="ayur-social-link" target="_blank">
+                                <svg width="11" height="20" viewBox="0 0 11 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.74157 20V10.8777H9.80231L10.2615 7.32156H6.74157V5.05147C6.74157 4.0222 7.02622 3.32076 8.50386 3.32076L10.3854 3.31999V0.13923C10.06 0.0969453 8.94308 0 7.64308 0C4.92848 0 3.07002 1.65697 3.07002 4.69927V7.32156H0V10.8777H3.07002V20H6.74157Z"
+                                    fill="#E4D4CF" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com" class="ayur-social-link" target="_blank">
+                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.4996 0H5.49988C2.75019 0 0.5 2.25019 0.5 4.99988V15.0001C0.5 17.7491 2.75019 20 5.49988 20H15.4996C18.2493 20 20.4995 17.7491 20.4995 15.0001V4.99988C20.4995 2.25019 18.2493 0 15.4996 0ZM18.8328 15.0001C18.8328 16.8376 17.3381 18.3333 15.4996 18.3333H5.49988C3.66218 18.3333 2.16671 16.8376 2.16671 15.0001V4.99988C2.16671 3.16193 3.66218 1.66671 5.49988 1.66671H15.4996C17.3381 1.66671 18.8328 3.16193 18.8328 4.99988V15.0001Z"
+                                    fill="#E4D4CF" />
+                                <path
+                                    d="M15.9172 5.83295C16.6075 5.83295 17.1672 5.27332 17.1672 4.58298C17.1672 3.89264 16.6075 3.33301 15.9172 3.33301C15.2269 3.33301 14.6672 3.89264 14.6672 4.58298C14.6672 5.27332 15.2269 5.83295 15.9172 5.83295Z"
+                                    fill="#E4D4CF" />
+                                <path
+                                    d="M10.4999 5C7.73793 5 5.5 7.23818 5.5 9.99988C5.5 12.7606 7.73793 15.0002 10.4999 15.0002C13.261 15.0002 15.4998 12.7606 15.4998 9.99988C15.4998 7.23818 13.261 5 10.4999 5ZM10.4999 13.3335C8.65915 13.3335 7.16671 11.8411 7.16671 9.99988C7.16671 8.15866 8.65915 6.66671 10.4999 6.66671C12.3406 6.66671 13.833 8.15866 13.833 9.99988C13.833 11.8411 12.3406 13.3335 10.4999 13.3335Z"
+                                    fill="#E4D4CF" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ayur-footer-bottom">
+                        <p>&copy; 2026 Crystal Monk. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!------------- Footer Section end ----------->
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/flatpickr.js"></script>
+    <script src="assets/js/vanilla-tilt.min.js"></script>
+    <script src="assets/js/SmoothScroll.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <script>
+        // Contact Form Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const category = document.getElementById('category').value;
+            const message = document.getElementById('message').value.trim();
+            const terms = document.getElementById('terms').checked;
+
+            const messageDiv = document.getElementById('formMessage');
+
+            // Validation
+            if (!fullName || !email || !subject || !message) {
+                messageDiv.className = 'ayur-form-message error';
+                messageDiv.textContent = 'Please fill in all required fields.';
+                return;
+            }
+
+            if (!terms) {
+                messageDiv.className = 'ayur-form-message error';
+                messageDiv.textContent = 'Please agree to the terms and privacy policy.';
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                messageDiv.className = 'ayur-form-message error';
+                messageDiv.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
+            // Success message (in real implementation, send to server)
+            messageDiv.className = 'ayur-form-message success';
+            messageDiv.textContent = 'Thank you for your message! We will get back to you soon.';
+
+            // Reset form
+            this.reset();
+
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.ayur-contact-item').forEach(item => {
+                observer.observe(item);
+            });
+        }
+    </script>
+    <!-- ------------------------------------------------------------------------------ -->
+     <audio id="bg-audio" loop>
+    <source src="assets/audio/bg-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <img id="audio-btn" src="assets/images/play.png" alt="audio control">
+
+    <style>
+    #audio-btn {
+        position: fixed;
+        left: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        
+        padding: 12px 18px;
+        font-size: 16px;
+        background: #ff9800;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        color: white;
+        z-index: 9999;
+    }
+    </style>
+
+    <script>
+        const audio = document.getElementById("bg-audio");
+        const btn = document.getElementById("audio-btn");
+
+        const playImg = "assets/images/play.png";
+        const pauseImg = "assets/images/pause.png";
+
+        audio.volume = 0.9;
+
+        btn.addEventListener("click", () => {
+            if (audio.paused) {
+            audio.play();
+             btn.src = pauseImg;
+            } else {
+            audio.pause();
+            btn.src = playImg;
+            }
+        });
+    </script>
+
+    <!-- ------------------------------------------------------------------------------ -->
+</body>
+</html>

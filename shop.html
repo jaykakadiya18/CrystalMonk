@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Pure Astrology</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/select2.min.css">
+    <link rel="stylesheet" href="assets/css/flatpickr.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <style>
+        .ayur-shop-filters {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .ayur-filter-btn {
+            padding: 12px 30px;
+            border: 2px solid rgb(65, 58, 164);
+            background: transparent;
+            color: #222;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .ayur-filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(65, 58, 164, 0.2);
+            background: rgb(65, 58, 164);
+            color: #fff;
+        }
+
+        .ayur-filter-btn.active {
+            background: rgb(65, 58, 164);
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(205, 137, 115, 0.3);
+        }
+
+        .ayur-product-item {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+            display: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .ayur-product-item.show {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+            animation: slideInUp 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .ayur-shop-hero {
+            background: linear-gradient(135deg, #F6F1ED 0%, #E8DDD6 100%);
+            padding: 60px 0;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ayur-shop-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(205, 137, 115, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .ayur-shop-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(205, 137, 115, 0.08);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .ayur-shop-hero .container {
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ayur-shop-hero h1 {
+            font-size: 48px;
+            color: #222;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .ayur-shop-hero p {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ayur-shop-filters {
+                gap: 12px;
+                margin-bottom: 40px;
+            }
+
+            .ayur-filter-btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+
+            .ayur-shop-hero h1 {
+                font-size: 36px;
+                margin-bottom: 12px;
+            }
+
+            .ayur-shop-hero p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ayur-shop-filters {
+                gap: 10px;
+                margin-bottom: 30px;
+            }
+
+            .ayur-filter-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+
+            .ayur-shop-hero {
+                padding: 40px 0;
+                margin-bottom: 40px;
+            }
+
+            .ayur-shop-hero h1 {
+                font-size: 28px;
+            }
+
+            .ayur-shop-hero p {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!------------- Loader start ----------->
+    <div class="ayur-loader">
+        <div class="ayur-spin">
+            <img src="assets/images/loader.gif" alt="loader">
+        </div>
+    </div>
+    <!------------- Loader End ----------->
+
+    <!------------- Header Section start ----------->
+    <div class="ayur-menu-wrapper">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-md-4 col-sm-5 col-6">
+                    <div class="ayur-menu-logo">
+                        <a href="index.html"><img src="assets/images/Logo.png"></a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-8 col-sm-7 col-6">
+                    <div class="ayur-navmenu-wrapper">
+                        <div class="ayur-nav-menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="index.html#about">About</a></li>
+                                <li class="active"><a href="shop.html">Shop</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="ayur-toggle-btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------- Header Section End ----------->
+
+    <!------------- Shop Hero Section start ----------->
+    <div class="ayur-shop-hero">
+        <div class="container">
+            <h1>Our Shop</h1>
+            <p>Discover our exclusive collection of premium astrological products</p>
+        </div>
+    </div>
+    <!------------- Shop Hero Section end ----------->
+
+    <!------------- Shop Products Section start ----------->
+    <div class="ayur-bgcover ayur-topproduct-sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="ayur-heading-wrap">
+                        <h5>Product Collection</h5>
+                        <h3>Browse Our Products</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="ayur-shop-filters">
+                        <button class="ayur-filter-btn active" data-filter="all">All Products</button>
+                        <button class="ayur-filter-btn" data-filter="top">Top Products</button>
+                        <button class="ayur-filter-btn" data-filter="our">Our Products</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 ayur-product-item show" data-category="all top">
+                    <div class="ayur-tpro-box">
+                        <div class="ayur-tpro-img">
+                            <img src="assets/images/product-img7.jpg" alt="img">
+                            <div class="ayur-tpro-sale">
+                                <p>Sale</p>
+                                <div class="ayur-tpro-like">
+                                    <a href="javascript:void(0)" class="ayur-tpor-click">
+                                        <img src="assets/images/like.svg" class="unlike" />
+                                        <img src="assets/images/like-fill.svg" class="like" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ayur-tpro-text">
+                            <h3><a href="shop-single.html">Ruby Gemstone</a></h3>
+                            <div class="ayur-tpro-price">
+                                <p><del>$100</del>$50</p>
+                                <div class="ayur-tpro-star">
+                                    <img src="assets/images/star-icon.png" alt="star">
+                                    <p>4.5/5</p>
+                                </div>
+                            </div>
+                            <div class="ayur-tpro-btn">
+                                <a href="cart.html" class="ayur-btn">
+                                    <span>
+                                        <img src="assets/images/wa-icon.png" alt="whatsapp">
+                                    </span>
+                                    Whatsapp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 ayur-product-item show" data-category="all our">
+                    <div class="ayur-tpro-box">
+                        <div class="ayur-tpro-img">
+                            <img src="assets/images/product-img8.jpg" alt="img">
+                            <div class="ayur-tpro-sale ayur-tpro-sale-off">
+                                <p>30% Off</p>
+                                <div class="ayur-tpro-like">
+                                    <a href="javascript:void(0)" class="ayur-tpor-click">
+                                        <img src="assets/images/like.svg" class="unlike" />
+                                        <img src="assets/images/like-fill.svg" class="like" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ayur-tpro-text">
+                            <h3><a href="shop-single.html">Sapphire Crystal</a></h3>
+                            <div class="ayur-tpro-price">
+                                <p><del>$100</del>$50</p>
+                                <div class="ayur-tpro-star">
+                                    <img src="assets/images/star-icon.png" alt="star">
+                                    <p>4.5/5</p>
+                                </div>
+                            </div>
+                            <div class="ayur-tpro-btn">
+                                <a href="cart.html" class="ayur-btn">
+                                    <span>
+                                        <img src="assets/images/wa-icon.png" alt="whatsapp">
+                                    </span>
+                                    Whatsapp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 ayur-product-item show" data-category="all top">
+                    <div class="ayur-tpro-box">
+                        <div class="ayur-tpro-img">
+                            <img src="assets/images/product-img9.jpg" alt="img">
+                            <div class="ayur-tpro-sale ayur-tpro-sale-star">
+                                <div class="ayur-tpro-like">
+                                    <a href="javascript:void(0)" class="ayur-tpor-click">
+                                        <img src="assets/images/like.svg" class="unlike" />
+                                        <img src="assets/images/like-fill.svg" class="like" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ayur-tpro-text">
+                            <h3><a href="shop-single.html">Emerald Stone</a></h3>
+                            <div class="ayur-tpro-price">
+                                <p><del>$100</del>$50</p>
+                                <div class="ayur-tpro-star">
+                                    <img src="assets/images/star-icon.png" alt="star">
+                                    <p>4.5/5</p>
+                                </div>
+                            </div>
+                            <div class="ayur-tpro-btn">
+                                <a href="cart.html" class="ayur-btn">
+                                    <span>
+                                        <img src="assets/images/wa-icon.png" alt="whatsapp">
+                                    </span>
+                                    Whatsapp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 ayur-product-item show" data-category="all our">
+                    <div class="ayur-tpro-box">
+                        <div class="ayur-tpro-img">
+                            <img src="assets/images/product-img10.jpg" alt="img">
+                            <div class="ayur-tpro-sale ayur-tpro-sale-star">
+                                <div class="ayur-tpro-like">
+                                    <a href="javascript:void(0)" class="ayur-tpor-click">
+                                        <img src="assets/images/like.svg" class="unlike" />
+                                        <img src="assets/images/like-fill.svg" class="like" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ayur-tpro-text">
+                            <h3><a href="shop-single.html">Ruby Gemstone</a></h3>
+                            <div class="ayur-tpro-price">
+                                <p><del>$100</del>$50</p>
+                                <div class="ayur-tpro-star">
+                                    <img src="assets/images/star-icon.png" alt="star">
+                                    <p>4.5/5</p>
+                                </div>
+                            </div>
+                            <div class="ayur-tpro-btn">
+                                <a href="cart.html" class="ayur-btn">
+                                    <span>
+                                        <img src="assets/images/wa-icon.png" alt="whatsapp">
+                                    </span>
+                                    Whatsapp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 ayur-product-item show" data-category="all top">
+                    <div class="ayur-tpro-box">
+                        <div class="ayur-tpro-img">
+                            <img src="assets/images/product-img11.jpg" alt="img">
+                            <div class="ayur-tpro-sale ayur-tpro-sale-star">
+                                <div class="ayur-tpro-like">
+                                    <a href="javascript:void(0)" class="ayur-tpor-click">
+                                        <img src="assets/images/like.svg" class="unlike" />
+                                        <img src="assets/images/like-fill.svg" class="like" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ayur-tpro-text">
+                            <h3><a href="shop-single.html">Diamond Crystal</a></h3>
+                            <div class="ayur-tpro-price">
+                                <p><del>$100</del>$50</p>
+                                <div class="ayur-tpro-star">
+                                    <img src="assets/images/star-icon.png" alt="star">
+                                    <p>4.5/5</p>
+                                </div>
+                            </div>
+                            <div class="ayur-tpro-btn">
+                                <a href="cart.html" class="ayur-btn">
+                                    <span>
+                                        <img src="assets/images/wa-icon.png" alt="whatsapp">
+                                    </span>
+                                    Whatsapp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 ayur-product-item show" data-category="all our">
+                    <div class="ayur-tpro-box">
+                        <div class="ayur-tpro-img">
+                            <img src="assets/images/product-img12.jpg" alt="img">
+                            <div class="ayur-tpro-sale ayur-tpro-sale-trend">
+                                <p>Trending</p>
+                                <div class="ayur-tpro-like">
+                                    <a href="javascript:void(0)" class="ayur-tpor-click">
+                                        <img src="assets/images/like.svg" class="unlike" />
+                                        <img src="assets/images/like-fill.svg" class="like" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ayur-tpro-text">
+                            <h3><a href="shop-single.html">Pearl Gemstone</a></h3>
+                            <div class="ayur-tpro-price">
+                                <p><del>$100</del>$50</p>
+                                <div class="ayur-tpro-star">
+                                    <img src="assets/images/star-icon.png" alt="star">
+                                    <p>4.5/5</p>
+                                </div>
+                            </div>
+                            <div class="ayur-tpro-btn">
+                                <a href="cart.html" class="ayur-btn">
+                                    <span>
+                                        <img src="assets/images/wa-icon.png" alt="whatsapp">
+                                    </span>
+                                    Whatsapp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 ayur-product-item show" data-category="all our">
+                    <div class="ayur-tpro-box">
+                        <div class="ayur-tpro-img">
+                            <img src="assets/images/tren-pro5.jpg" alt="img">
+                            <div class="ayur-tpro-sale">
+                                <p>Sale</p>
+                                <div class="ayur-tpro-like">
+                                    <a href="javascript:void(0)" class="ayur-tpor-click">
+                                        <img src="assets/images/like.svg" class="unlike" />
+                                        <img src="assets/images/like-fill.svg" class="like" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ayur-tpro-text">
+                            <h3><a href="shop-single.html">Astrological Remedies</a></h3>
+                            <div class="ayur-tpro-price">
+                                <p><del>$100</del>$50</p>
+                                <div class="ayur-tpro-star">
+                                    <img src="assets/images/star-icon.png" alt="star">
+                                    <p>4.5/5</p>
+                                </div>
+                            </div>
+                            <div class="ayur-tpro-btn">
+                                <a href="cart.html" class="ayur-btn">
+                                    <span>
+                                        <img src="assets/images/wa-icon.png" alt="whatsapp">
+                                    </span>
+                                    Whatsapp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 ayur-product-item show" data-category="all top">
+                    <div class="ayur-tpro-box">
+                        <div class="ayur-tpro-img">
+                            <img src="assets/images/tren-pro6.jpg" alt="img">
+                            <div class="ayur-tpro-sale ayur-tpro-sale-off">
+                                <p>30% Off</p>
+                                <div class="ayur-tpro-like">
+                                    <a href="javascript:void(0)" class="ayur-tpor-click">
+                                        <img src="assets/images/like.svg" class="unlike" />
+                                        <img src="assets/images/like-fill.svg" class="like" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ayur-tpro-text">
+                            <h3><a href="shop-single.html">Astrological Remedies</a></h3>
+                            <div class="ayur-tpro-price">
+                                <p><del>$100</del>$50</p>
+                                <div class="ayur-tpro-star">
+                                    <img src="assets/images/star-icon.png" alt="star">
+                                    <p>4.5/5</p>
+                                </div>
+                            </div>
+                            <div class="ayur-tpro-btn">
+                                <a href="cart.html" class="ayur-btn">
+                                    <span>
+                                        <img src="assets/images/wa-icon.png" alt="whatsapp">
+                                    </span>
+                                    Whatsapp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 ayur-product-item show" data-category="all our">
+                    <div class="ayur-tpro-box">
+                        <div class="ayur-tpro-img">
+                            <img src="assets/images/tren-pro7.jpg" alt="img">
+                            <div class="ayur-tpro-sale ayur-tpro-sale-star">
+                                <div class="ayur-tpro-like">
+                                    <a href="javascript:void(0)" class="ayur-tpor-click">
+                                        <img src="assets/images/like.svg" class="unlike" />
+                                        <img src="assets/images/like-fill.svg" class="like" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ayur-tpro-text">
+                            <h3><a href="shop-single.html">Astrological Remedies</a></h3>
+                            <div class="ayur-tpro-price">
+                                <p><del>$100</del>$50</p>
+                                <div class="ayur-tpro-star">
+                                    <img src="assets/images/star-icon.png" alt="star">
+                                    <p>4.5/5</p>
+                                </div>
+                            </div>
+                            <div class="ayur-tpro-btn">
+                                <a href="cart.html" class="ayur-btn">
+                                    <span>
+                                        <img src="assets/images/wa-icon.png" alt="whatsapp">
+                                    </span>
+                                    Whatsapp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 ayur-product-item show" data-category="all top">
+                    <div class="ayur-tpro-box">
+                        <div class="ayur-tpro-img">
+                            <img src="assets/images/tren-pro8.jpg" alt="img">
+                            <div class="ayur-tpro-sale ayur-tpro-sale-star">
+                                <div class="ayur-tpro-like">
+                                    <a href="javascript:void(0)" class="ayur-tpor-click">
+                                        <img src="assets/images/like.svg" class="unlike" />
+                                        <img src="assets/images/like-fill.svg" class="like" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ayur-tpro-text">
+                            <h3><a href="shop-single.html">Astrological Remedies</a></h3>
+                            <div class="ayur-tpro-price">
+                                <p><del>$100</del>$50</p>
+                                <div class="ayur-tpro-star">
+                                    <img src="assets/images/star-icon.png" alt="star">
+                                    <p>4.5/5</p>
+                                </div>
+                            </div>
+                            <div class="ayur-tpro-btn">
+                                <a href="cart.html" class="ayur-btn">
+                                    <span>
+                                        <img src="assets/images/wa-icon.png" alt="whatsapp">
+                                    </span>
+                                    Whatsapp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ayur-bgshape ayur-tpro-bgshape">
+            <img src="assets/images/bg-shape1.png" alt="img" />
+            <img src="assets/images/bg-leaf1.png" alt="img" />
+        </div>
+    </div>
+    <!------------- Shop Products Section end ----------->
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/flatpickr.js"></script>
+    <script src="assets/js/vanilla-tilt.min.js"></script>
+    <script src="assets/js/SmoothScroll.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <script>
+        // Filter functionality with smooth animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.ayur-filter-btn');
+            const productItems = document.querySelectorAll('.ayur-product-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    // Animate products out and in
+                    productItems.forEach(item => {
+                        const categories = item.getAttribute('data-category').split(' ');
+                        const shouldShow = filterValue === 'all' || categories.includes(filterValue);
+
+                        if (shouldShow) {
+                            // Add slight delay for staggered animation
+                            setTimeout(() => {
+                                item.classList.add('show');
+                            }, 50);
+                        } else {
+                            item.classList.remove('show');
+                        }
+                    });
+                });
+            });
+
+            // Like button functionality
+            document.querySelectorAll('.ayur-tpor-click').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const unlike = this.querySelector('.unlike');
+                    const like = this.querySelector('.like');
+                    
+                    // Toggle with smooth animation
+                    if (unlike && like) {
+                        unlike.style.opacity = unlike.style.opacity === '0' ? '1' : '0';
+                        like.style.opacity = like.style.opacity === '0' ? '1' : '0';
+                        
+                        this.parentElement.parentElement.parentElement.classList.toggle('liked');
+                    }
+                });
+            });
+
+            // Initialize: Set first product items to show on page load
+            const firstBtn = filterBtns[0];
+            if (firstBtn) {
+                firstBtn.click();
+            }
+        });
+
+        // Intersection Observer for lazy animation
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.ayur-product-item').forEach(item => {
+                observer.observe(item);
+            });
+        }
+    </script>
+    <!-- --------------------------------------------------------- -->
+    <audio id="bg-audio" loop>
+    <source src="assets/audio/bg-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <img id="audio-btn" src="assets/images/play.png" alt="audio control">
+
+    <style>
+    #audio-btn {
+        position: fixed;
+        left: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        
+        padding: 12px 18px;
+        font-size: 16px;
+        background: #ff9800;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        color: white;
+        z-index: 9999;
+    }
+    </style>
+
+    <script>
+        const audio = document.getElementById("bg-audio");
+        const btn = document.getElementById("audio-btn");
+
+        const playImg = "assets/images/play.png";
+        const pauseImg = "assets/images/pause.png";
+
+        audio.volume = 0.9;
+
+        btn.addEventListener("click", () => {
+            if (audio.paused) {
+            audio.play();
+             btn.src = pauseImg;
+            } else {
+            audio.pause();
+            btn.src = playImg;
+            }
+        });
+    </script>
+
+    <!-- --------------------------------------------------------- -->
+</body>
+</html>
