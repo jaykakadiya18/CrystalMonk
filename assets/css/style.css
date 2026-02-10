@@ -1148,6 +1148,10 @@ a.likeproduct img.like{
   align-items: center;
   gap: 14px;
 }
+.ayur-testname img{
+  border-radius: 50%;
+  width: 50px;
+}
 .ayur-testname h3{
   font-size: 18px;
   font-weight: 600;
