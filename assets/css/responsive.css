@@ -497,3 +497,49 @@
         margin-left: 12px;
     }
 }
+/* Consultation & How It Works responsive */
+@media(max-width:991px) {
+    .ayur-consultation-sec {
+        padding: 56px 0 64px;
+    }
+    .ayur-consult-card {
+        padding: 28px 24px 32px;
+    }
+    .ayur-howitworks-sec {
+        padding: 56px 0 72px;
+    }
+    .ayur-howitworks-steps .col-md-6 {
+        margin-bottom: 24px;
+    }
+    .ayur-how-step {
+        padding: 20px 16px 24px;
+    }
+}
+@media(max-width:575px) {
+    .ayur-consultation-cards .ayur-consult-col {
+        margin-bottom: 20px;
+    }
+    .ayur-consultation-cards .ayur-consult-col:last-child {
+        margin-bottom: 0;
+    }
+}
+@media(max-width:767px) {
+    .ayur-consultation-sub,
+    .ayur-howitworks-sub {
+        font-size: 16px;
+    }
+    .ayur-consult-card h4 {
+        font-size: 20px;
+    }
+    .ayur-consult-price {
+        font-size: 26px;
+    }
+    .ayur-how-step-num {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+    .ayur-how-step h4 {
+        font-size: 17px;
+    }
+}

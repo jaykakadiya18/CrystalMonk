@@ -231,7 +231,7 @@ textarea{
   text-align: center;
   text-transform: capitalize;
   display: inline-block;
-  padding: 9px 0;
+  padding: 12px 32px;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -246,17 +246,16 @@ textarea{
   display: block;
   top: 50%;
   left: 50%;
-  bottom: 0;
-  width: 100%;
+  width: 120%;
   height: 0%;
   border-radius: 15px;
   background-color: var(--ayur-banheading-color);
   z-index: -1;
-  transition: all .6s ease;
+  transition: all .5s ease;
   transform: translate(-50%, -50%) rotate(-45deg);
-} 
-.ayur-btn:hover:after{
-  height: 380%;
+}
+.ayur-btn:hover::after{
+  height: 600%;
 }
 .ayur-btn:hover{
   color: var(--ayur-white-color);
@@ -810,7 +809,7 @@ a.likeproduct img.like{
 /* Top-product section css End */
 /* About section css Start */
 .ayur-about-sec {
-  padding: 13px 0 81px;
+  padding: 80px 0 80px;
 }
 .ayur-about-head{
   text-align: left;
@@ -853,6 +852,189 @@ a.likeproduct img.like{
   animation: jumpThree 5s infinite linear;
 }
 /* About section css End */
+/* Consultation Options (Luxury Tiering) section css Start */
+.ayur-consultation-sec {
+  padding: 72px 0 80px;
+  background-color: var(--ayur-testpara-bgcolor);
+}
+.ayur-consultation-sec .ayur-heading-wrap {
+  margin-bottom: 48px;
+}
+.ayur-consultation-sub {
+  max-width: 640px;
+  margin: 12px auto 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ayur-para-color);
+}
+.ayur-consultation-cards {
+  align-items: stretch;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+.ayur-consultation-cards .ayur-consult-col {
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-bottom: 24px;
+}
+.ayur-consult-card {
+  height: 100%;
+  background: var(--ayur-white-color);
+  border-radius: 16px;
+  padding: 32px 28px 36px;
+  border: 1px solid var(--ayur-border-color);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.ayur-consult-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(65, 58, 164, 0.12);
+  border-color: rgba(65, 58, 164, 0.2);
+}
+.ayur-consult-tier-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ayur-primary-color);
+  margin-bottom: 14px;
+  padding: 4px 12px;
+  background: rgba(65, 58, 164, 0.08);
+  border-radius: 20px;
+  width: fit-content;
+}
+.ayur-consult-card-featured .ayur-consult-tier-label {
+  background: var(--ayur-primary-color);
+  color: var(--ayur-white-color);
+}
+.ayur-consult-card-elite .ayur-consult-tier-label {
+  background: var(--ayur-banheading-color);
+  color: var(--ayur-primary-lightcolor);
+}
+.ayur-consult-card h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ayur-heading-color);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.ayur-consult-price {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--ayur-primary-color);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.ayur-consult-price-elite {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ayur-banheading-color);
+}
+.ayur-consult-card p {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ayur-para-color);
+  margin-bottom: 24px;
+}
+.ayur-consult-btn {
+  margin-top: auto;
+  width: 100%;
+  min-width: unset;
+  border-radius: 12px;
+}
+.ayur-consult-btn-elite {
+  background-color: var(--ayur-banheading-color);
+}
+.ayur-consult-btn-elite::after {
+  background-color: var(--ayur-primary-color);
+}
+.ayur-consult-card-featured {
+  border-color: rgba(65, 58, 164, 0.25);
+  box-shadow: 0 8px 32px rgba(65, 58, 164, 0.15);
+}
+.ayur-consult-card-featured:hover {
+  box-shadow: 0 16px 48px rgba(65, 58, 164, 0.2);
+}
+/* Consultation Options section css End */
+/* How It Works section css Start */
+.ayur-howitworks-sec {
+  padding: 72px 0 88px;
+  position: relative;
+  overflow: hidden;
+}
+.ayur-howitworks-sec .ayur-heading-wrap {
+  margin-bottom: 52px;
+}
+.ayur-howitworks-sub {
+  max-width: 560px;
+  margin: 12px auto 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ayur-para-color);
+}
+.ayur-howitworks-steps {
+  margin-bottom: 48px;
+}
+.ayur-how-step {
+  text-align: center;
+  padding: 28px 20px 32px;
+  position: relative;
+}
+.ayur-how-step-num {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--ayur-primary-color) 0%, rgba(65, 58, 164, 0.85) 100%);
+  color: var(--ayur-white-color);
+  font-size: 24px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(65, 58, 164, 0.35);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.ayur-how-step:hover .ayur-how-step-num {
+  transform: scale(1.08);
+  box-shadow: 0 8px 28px rgba(65, 58, 164, 0.4);
+}
+.ayur-how-step h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ayur-heading-color);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+.ayur-how-step p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ayur-para-color);
+  margin: 0;
+}
+.ayur-howitworks-cta {
+  text-align: center;
+}
+.ayur-howitworks-cta .ayur-btn {
+  padding: 14px 40px;
+  font-size: 17px;
+  min-height: 52px;
+  border-radius: 26px;
+}
+.ayur-howitworks-bgshape {
+  pointer-events: none;
+}
+.ayur-howitworks-bgshape img {
+  right: 0;
+  top: 10%;
+  opacity: 0.4;
+}
+/* How It Works section css End */
 /* Achieveent section css Start */
 .ayur-achievement-sec{
   background-image: url('../images/achievement-bg.png');
@@ -937,7 +1119,7 @@ a.likeproduct img.like{
   100% {-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
 }
 .ayur-why-sec{
-  padding: 0px 0 100px;
+  padding: 60px 0 100px;
 }
 .ayur-why-textheading h3{
   font-size: 24px;
@@ -948,8 +1130,7 @@ a.likeproduct img.like{
 }
 .ayur-why-textheading ul{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
 }
 .ayur-why-textheading ul li{
   display: flex;
@@ -999,6 +1180,79 @@ a.likeproduct img.like{
 }
 .ayur-why-box:hover .ayur-why-boxicon{
   transform: rotateY(360deg);
+}
+.ayur-faq-sec{
+  padding: 60px 0 100px;
+}
+.ayur-faq-list{
+  margin-top: 30px;
+}
+.ayur-faq-item{
+  margin-bottom: 16px;
+  background-color: var(--ayur-white-color);
+  border: 1px solid var(--ayur-border-color);
+  border-radius: 10px;
+  transition: all .3s ease-in-out;
+  overflow: hidden;
+}
+.ayur-faq-item:hover{
+  box-shadow: 3px 4px 29.6px 0px #0000000F;
+}
+.ayur-faq-question{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color .2s ease;
+}
+.ayur-faq-question:hover{
+  background-color: rgba(0,0,0,.02);
+}
+.ayur-faq-num{
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ayur-primary-color);
+  flex-shrink: 0;
+}
+.ayur-faq-question-text{
+  flex: 1;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ayur-banheading-color);
+  margin: 0;
+}
+.ayur-faq-arrow{
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ayur-primary-color);
+  transition: transform .35s ease;
+}
+.ayur-faq-item.open .ayur-faq-arrow{
+  transform: rotate(180deg);
+}
+.ayur-faq-answer{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+}
+.ayur-faq-item.open .ayur-faq-answer{
+  max-height: 280px;
+}
+.ayur-faq-answer p{
+  margin: 0;
+  padding: 0 24px 20px 52px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+@media (max-width: 767px){
+  .ayur-faq-answer p{
+    padding-left: 24px;
+  }
 }
 .ayur-video-section{
   padding: 50px 0 0;
@@ -1499,9 +1753,13 @@ ul.ayur-links li a:hover::before{
   align-items: flex-start;
   padding: 0 0 22px;
 }
-.ayur-contact-box p{
-   color: var(--ayur-footertext-color);
+.ayur-contact-box p,
+.ayur-contact-box p a{
+  color: #fff;
   font-family: "Archivo", sans-serif;
+}
+.ayur-contact-box p a:hover{
+  color: rgba(255,255,255,0.85);
 }
 .ayur-recentblog-box {
   display: grid;
