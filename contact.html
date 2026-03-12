@@ -345,25 +345,25 @@
 
 
         .ayur-social-link {
-            width: 45px;
+            /* width: 45px;
             height: 45px;
             border-radius: 50%;
             background: rgb(65, 58, 164);
-            color: rgb(65, 58, 164);
+            color: rgb(65, 58, 164); */
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             font-size: 16px;
             transition: all 0.3s ease;
-            border: 1px solid #E8DDD6;
+            /* border: 1px solid #E8DDD6; */
         }
 
         .ayur-social-link:hover {
-            background: rgb(65, 58, 164);
+            /* background: rgb(65, 58, 164); */
             color: white;
             transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(65, 58, 164, 0.3);
+            /* box-shadow: 0 6px 18px rgba(65, 58, 164, 0.3); */
         }
 
         /* Map Section */
@@ -697,8 +697,17 @@
 
                 <!-- Contact Form -->
                 <div class="ayur-contact-form-wrapper">
-                    <form class="ayur-contact-form" id="contactForm" method="POST">
+                    <form class="ayur-contact-form" id="contactForm" action="https://formsubmit.co/crystalmonkofficial@gmail.com" method="POST" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8">
                         <h3>Send us a Message</h3>
+                        
+                        <!-- FormSubmit.co configuration -->
+                        <input type="hidden" name="_captcha" value="true">
+                        <input type="hidden" name="_subject" value="New Contact Message from Crystal Monk">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_autoresponse" value="Thank you for contacting Crystal Monk! We have received your message and will respond within 24 hours.">
+                        <input type="hidden" name="_next" value="#">
+                        <!-- Honeypot spam filter -->
+                        <input type="text" name="_honey" style="display:none;">
                         
                         <div class="ayur-form-message" id="formMessage"></div>
 
@@ -741,12 +750,12 @@
                             <textarea id="message" name="message" placeholder="Please tell us more about your inquiry..." required></textarea>
                         </div>
 
-                        <div class="ayur-form-checkbox">
+                        <!-- <div class="ayur-form-checkbox">
                             <input type="checkbox" id="terms" name="terms" required>
                             <label for="terms">I agree to the privacy policy and terms of service</label>
-                        </div>
+                        </div> -->
 
-                        <button type="submit" class="ayur-submit-btn">Send Message</button>
+                        <button type="submit" class="ayur-submit-btn" id="submitBtn">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -758,81 +767,108 @@
                     <p>Visit us at our office or connect with us online</p>
                 </div>
                 <div class="ayur-map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5349254658016!2d77.20359672346899!3d28.612907675726346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2cc8f8b8b8b%3A0x8f8b8b8b8f8b8b8b!2sNew%20Delhi%2C%20India!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1835.6834244130657!2d72.63720583860957!3d23.047008544789207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e86eaf276c94f%3A0x4c81f8ef05be880b!2sHirawadi!5e0!3m2!1sen!2sin!4v1773313404496!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
     </div>
     <!------------- Contact Section end ----------->
 
-    <!------------- Footer Section start ----------->
-    <footer class="ayur-footer-sec">
+<!------------- footer Section start ----------->
+    <div class="ayur-footer-section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="ayur-footer-content">
-                        <h4>About Us</h4>
-                        <p>Crystal Monk is committed to providing authentic products and services for your wellness.</p>
+            <div class="ayur-footer-sec">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="ayur-footer-logosec">
+                            <div class="ayur-footer-logo">
+                                <img height="80" src="assets/images/image.png" alt="logo" />
+                                <img height="50" src="assets/images/FAVICON-name.png" alt="logo" />
+                                <!-- <img height="80" src="assets/images/logo.png" alt="logo" /> -->
+                            </div>
+                            <p>
+                                Crystal Monk offers authentic healing crystals to bring balance, positivity, and inner peace.
+                                Discover tools that support mindfulness and spiritual well-being in everyday life.
+                            </p>
+                            <ul class="ayur-social-link">
+                                <li>
+                                    <a href="https://www.facebook.com/people/Crystal-Monk/61587259095692/" target="_blank" rel="noopener noreferrer" title="Facebook">
+                                        <svg width="11" height="20" viewBox="0 0 11 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.74157 20V10.8777H9.80231L10.2615 7.32156H6.74157V5.05147C6.74157 4.0222 7.02622 3.32076 8.50386 3.32076L10.3854 3.31999V0.13923C10.06 0.0969453 8.94308 0 7.64308 0C4.92848 0 3.07002 1.65697 3.07002 4.69927V7.32156H0V10.8777H3.07002V20H6.74157Z"
+                                                fill="#E4D4CF" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/crystalmonkofficial" target="_blank" rel="noopener noreferrer" title="Instagram">
+                                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M15.4996 0H5.49988C2.75019 0 0.5 2.25019 0.5 4.99988V15.0001C0.5 17.7491 2.75019 20 5.49988 20H15.4996C18.2493 20 20.4995 17.7491 20.4995 15.0001V4.99988C20.4995 2.25019 18.2493 0 15.4996 0ZM18.8328 15.0001C18.8328 16.8376 17.3381 18.3333 15.4996 18.3333H5.49988C3.66218 18.3333 2.16671 16.8376 2.16671 15.0001V4.99988C2.16671 3.16193 3.66218 1.66671 5.49988 1.66671H15.4996C17.3381 1.66671 18.8328 3.16193 18.8328 4.99988V15.0001Z"
+                                                fill="#E4D4CF" />
+                                            <path
+                                                d="M15.9172 5.83295C16.6075 5.83295 17.1672 5.27332 17.1672 4.58298C17.1672 3.89264 16.6075 3.33301 15.9172 3.33301C15.2269 3.33301 14.6672 3.89264 14.6672 4.58298C14.6672 5.27332 15.2269 5.83295 15.9172 5.83295Z"
+                                                fill="#E4D4CF" />
+                                            <path
+                                                d="M10.4999 5C7.73793 5 5.5 7.23818 5.5 9.99988C5.5 12.7606 7.73793 15.0002 10.4999 15.0002C13.261 15.0002 15.4998 12.7606 15.4998 9.99988C15.4998 7.23818 13.261 5 10.4999 5ZM10.4999 13.3335C8.65915 13.3335 7.16671 11.8411 7.16671 9.99988C7.16671 8.15866 8.65915 6.66671 10.4999 6.66671C12.3406 6.66671 13.833 8.15866 13.833 9.99988C13.833 11.8411 12.3406 13.3335 10.4999 13.3335Z"
+                                                fill="#E4D4CF" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="ayur-footer-content">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="shop.html">Shop</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="ayur-footer-content">
-                        <h4>Contact Info</h4>
-                        <p>Address: BRTS Bus Stop, 1643 kevdajini chali, opp of hirawadi, Ahmedabad, Gujarat 382350</p>
-                        <p>Email: <a href="mailto:info@pureastrology.com">info@pureastrology.com</a></p>
-                        <p>Phone / WhatsApp: <a href="tel:+919274507553">+91 9274507553</a></p>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="ayur-footer-box">
+                            <h4>Useful Links</h4>
+                            <ul class="ayur-links">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="/#consultation">Consult now</a></li>
+                                <li><a href="return-policy.html">Return Policy</a></li>
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="ayur-footer-content">
-                        <h4>Follow Us</h4>
-                        <div  style="display: flex; gap: 10px;">
-                            <a href="https://www.facebook.com/people/Crystal-Monk/61587259095692/" class="ayur-social-link" target="_blank" rel="noopener noreferrer" title="Facebook">
-                                <svg width="11" height="20" viewBox="0 0 11 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M6.74157 20V10.8777H9.80231L10.2615 7.32156H6.74157V5.05147C6.74157 4.0222 7.02622 3.32076 8.50386 3.32076L10.3854 3.31999V0.13923C10.06 0.0969453 8.94308 0 7.64308 0C4.92848 0 3.07002 1.65697 3.07002 4.69927V7.32156H0V10.8777H3.07002V20H6.74157Z"
-                                    fill="#E4D4CF" />
-                                </svg>
-                            </a>
-                            <a href="https://www.instagram.com/crystalmonkofficial" class="ayur-social-link" target="_blank" title="Instagram">
-                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M15.4996 0H5.49988C2.75019 0 0.5 2.25019 0.5 4.99988V15.0001C0.5 17.7491 2.75019 20 5.49988 20H15.4996C18.2493 20 20.4995 17.7491 20.4995 15.0001V4.99988C20.4995 2.25019 18.2493 0 15.4996 0ZM18.8328 15.0001C18.8328 16.8376 17.3381 18.3333 15.4996 18.3333H5.49988C3.66218 18.3333 2.16671 16.8376 2.16671 15.0001V4.99988C2.16671 3.16193 3.66218 1.66671 5.49988 1.66671H15.4996C17.3381 1.66671 18.8328 3.16193 18.8328 4.99988V15.0001Z"
-                                    fill="#E4D4CF" />
-                                <path
-                                    d="M15.9172 5.83295C16.6075 5.83295 17.1672 5.27332 17.1672 4.58298C17.1672 3.89264 16.6075 3.33301 15.9172 3.33301C15.2269 3.33301 14.6672 3.89264 14.6672 4.58298C14.6672 5.27332 15.2269 5.83295 15.9172 5.83295Z"
-                                    fill="#E4D4CF" />
-                                <path
-                                    d="M10.4999 5C7.73793 5 5.5 7.23818 5.5 9.99988C5.5 12.7606 7.73793 15.0002 10.4999 15.0002C13.261 15.0002 15.4998 12.7606 15.4998 9.99988C15.4998 7.23818 13.261 5 10.4999 5ZM10.4999 13.3335C8.65915 13.3335 7.16671 11.8411 7.16671 9.99988C7.16671 8.15866 8.65915 6.66671 10.4999 6.66671C12.3406 6.66671 13.833 8.15866 13.833 9.99988C13.833 11.8411 12.3406 13.3335 10.4999 13.3335Z"
-                                    fill="#E4D4CF" />
-                                </svg>
-                            </a>
+                    <div class="col-lg-3 col-md-6 col-sm-6 px-0">
+                        <div class="ayur-footer-box">
+                            <h4>Contact Info</h4>
+                            <ul class="ayur-contact-list">
+                                <li class="ayur-contact-box">
+                                    <img src="assets/images/location.png" alt="icon" />
+                                    <p>Plot no 1643, beside harshad electronic opp of hirawadi brts stand, Ahmedabad, Gujarat 382350</p>
+                                </li>
+                                <li class="ayur-contact-box">
+                                    <img src="assets/images/mobile.png" alt="icon" />
+                                    <p><a href="tel:+919274507553">+91 9274507553</a></p>
+                                </li>
+                                <li class="ayur-contact-box">
+                                    <img src="assets/images/wa-icon.png" width="16" alt="icon" />
+                                    <p><a href="https://wa.me/919274507553">+91 9274507553</a></p>                                
+                                </li>
+                                <li class="ayur-contact-box">
+                                    <img src="assets/images/email.png" alt="icon" />
+                                    <p><a href="mailto:crystalmonkofficial@gmail.com">crystalmonkofficial@gmail.com</a></p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="ayur-footer-bottom">
-                        <p>Crystal Monk — Confidential Spiritual Advisory | © 2026</p>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="ayur-copyright-para">
+                        <p>Crystal Monk — Confidential Spiritual Advisory | © 2026 </p>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!------------- Footer Section end ----------->
+    </div>
+    <!------------- footer Section end ----------->
 
     <!-- Scripts -->
     <script src="assets/js/jquery.js"></script>
@@ -847,8 +883,6 @@
     <script>
         // Contact Form Handling
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
             // Get form data
             const fullName = document.getElementById('fullName').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -862,36 +896,38 @@
 
             // Validation
             if (!fullName || !email || !subject || !message) {
+                e.preventDefault();
                 messageDiv.className = 'ayur-form-message error';
                 messageDiv.textContent = 'Please fill in all required fields.';
-                return;
+                messageDiv.style.display = 'block';
+                return false;
             }
 
             if (!terms) {
+                e.preventDefault();
                 messageDiv.className = 'ayur-form-message error';
                 messageDiv.textContent = 'Please agree to the terms and privacy policy.';
-                return;
+                messageDiv.style.display = 'block';
+                return false;
             }
 
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
+                e.preventDefault();
                 messageDiv.className = 'ayur-form-message error';
                 messageDiv.textContent = 'Please enter a valid email address.';
-                return;
+                messageDiv.style.display = 'block';
+                return false;
             }
 
-            // Success message (in real implementation, send to server)
+            // All validation passed - show success message and allow form submission
             messageDiv.className = 'ayur-form-message success';
-            messageDiv.textContent = 'Thank you for your message! We will get back to you soon.';
+            messageDiv.textContent = '✓ Thank you for your message! Submitting to our server...';
+            messageDiv.style.display = 'block';
 
-            // Reset form
-            this.reset();
-
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                messageDiv.style.display = 'none';
-            }, 5000);
+            // Allow the form to submit naturally to formsubmit.co
+            return true;
         });
 
         // Smooth scroll for navigation

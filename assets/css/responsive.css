@@ -543,3 +543,32 @@
         font-size: 17px;
     }
 }
+
+/* Product Image Container - Responsive */
+/* Desktop and Tablets - Fixed 400px × 400px */
+@media(min-width: 992px) {
+    .ayur-tpro-img {
+        height: 400px !important;
+    }
+}
+
+/* Medium Tablets - 350px × 350px */
+@media(max-width: 991px) and (min-width: 768px) {
+    .ayur-tpro-img {
+        height: 350px !important;
+    }
+}
+
+/* Small Tablets - 300px × 300px */
+@media(max-width: 767px) and (min-width: 576px) {
+    .ayur-tpro-img {
+        height: 300px !important;
+    }
+}
+
+/* Mobile Devices - 280px × 280px */
+@media(max-width: 575px) {
+    .ayur-tpro-img {
+        height: 280px !important;
+    }
+}

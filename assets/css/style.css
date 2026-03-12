@@ -666,7 +666,7 @@ li.ayur-has-menu a svg{
   transition: all .3s ease-in-out;
 }
 .ayur-tpro-text{
-  padding: 11px 10px 8px;
+  padding: 11px 10px 8px 15px;
 }
 .ayur-tpro-text h3, .ayur-tpro-text h3 a{
   font-size: 18px;
@@ -706,6 +706,7 @@ li.ayur-has-menu a svg{
   color: var(--ayur-para-color);
 }
 .ayur-tpro-btn .ayur-btn {
+  margin: 15px 0 0;
   min-width: -webkit-fill-available;
   background-color: var(--ayur-primary-color);
   border: 1px solid var(--ayur-para-color);
@@ -733,6 +734,12 @@ li.ayur-has-menu a svg{
   position: relative;
   overflow: hidden;
   border-radius: 18px;
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
 }
 .ayur-tpro-sale{
   position: absolute;
@@ -769,6 +776,10 @@ li.ayur-has-menu a svg{
 }
 .ayur-tpro-box .ayur-tpro-img > img{
   transition: all .3s linear;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .ayur-tpro-box:hover .ayur-tpro-img > img{
   transform: scale(1.1);
